@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     g++-arm-linux-gnueabihf \
     gcc-arm-linux-gnueabihf \
     wget \
-    python-pip 
+    python3-pip 
 
 WORKDIR /tmp
 
@@ -13,7 +13,7 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2
     chmod +x cmake-3.15.2-Linux-x86_64.sh && \
     ./cmake-3.15.2-Linux-x86_64.sh --prefix=/usr --skip-license --exclude-subdir
 
-RUN pip install conan && \
+RUN pip3 install conan && \
     conan profile new default --detect && \
     conan profile update settings.arch=armv7hf default && \
     conan profile update env.CXX=/usr/bin/arm-linux-gnueabihf-g++ default && \
