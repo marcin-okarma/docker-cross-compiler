@@ -1,0 +1,2 @@
+docker build . -t cross
+docker run -v `pwd`:/app -it --rm cross:latest /bin/bash
